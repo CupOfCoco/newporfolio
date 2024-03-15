@@ -16,7 +16,7 @@ a{
     --bg-color: #fff;
     --text-color:#000;
     --second-color: #a09dab;
-    --main-color: #f75023;
+    --main-color: #038303cc;
     --big-font: 5rem;
     --h2-font: 3rem;
     --p-font: 1.1rem;
@@ -119,39 +119,6 @@ header{
     gap: 4rem;
     
 }
-.circle{
-    padding-left: 1px;
-    position: relative;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.logos{
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: transparent;
-    background: url(../img/IMG_9501.PNG);
-    background-size: cover;
-    border-radius: 50%;
-}
-.text{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: rotateText 10s linear infinite;
-}
-@keyframes rotateText {
-    0%{
-        transform: rotate(360deg);
-    }
-    100%{
-        transform: rotate(0deg);
-    }
-}
 .text span{
     position: absolute;
     left: 50%;
@@ -162,7 +129,7 @@ header{
 
 .home-text h1{
     margin: 10px 0px 25px;
-    font-size:4.5rem;
+    font-size: 4.5rem;
     line-height: 1;
     font-weight: 500;
 }
@@ -198,7 +165,7 @@ span{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(1, 82, 1, 0.8);
+    background: #015201cc;
     font-size: 17px;
     color: var(--bg-color);
     margin-right: 22px;
@@ -291,6 +258,13 @@ header.sticky{
     box-shadow: -5px 0 0 #1ef30a,
                 -5px 0 0 #1ef30a;            
     transition-delay: 0s,0.5s,0.5s,0.5s;
+}
+
+.imagehome img{
+    border-radius: 70%;
+    max-width: 100%;
+    width:400px ;
+    height: 400px;
 }
 .about{
     display: grid;
@@ -419,19 +393,19 @@ header.sticky{
     left: .48rem;
     top: 0;
     height: 100%;
-    background-color: #f00;
+    background-color:#038303cc;
 }
-.circle-dot{
+/* .circle-dot{
     position: absolute;
     left: 0;
     top: 0;
     height: 1rem;
     width: 1rem;
-    border: 2px solid #f00;
+    border: 2px solid var(--main-color);
     border-radius: 50%;
-    background-color: #f00;
+    background-color: var(--main-color);
     transition: .3s;
-}
+} */
 .timeline-item:hover .circle-dot{
     background-color: white;
 }
@@ -449,7 +423,7 @@ header.sticky{
     align-items: center;
     column-gap: 4rem;
     font-size: .875rem;
-    color: #f00;
+    color: var(--main-color);
 }
 .head-qualification h3{
     color: var(--main-color);
@@ -473,7 +447,7 @@ header.sticky{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #f75023;
+    color: var(--main-color);
 }
 .skills-header{
     display: flex;
@@ -486,7 +460,7 @@ header.sticky{
 .skills-icon,
 .skills-arrow{
     font-size: 2rem;
-    color: #f00;
+    color: var(--main-color);
 }
 .skills-icon{
     margin-right: 0.75;
@@ -532,7 +506,7 @@ header.sticky{
 }
 .skills-percentage{
     display: block;
-    background-color: #f00;
+    background-color: var(--main-color);
 }
 .skills-data{
     padding-bottom:2rem;
@@ -800,7 +774,7 @@ header.sticky{
 
 @media (max-width: 1250px) {
    header{
-    padding: 16px 3%;
+    padding: 20px 3%;
     transition: .3s;
    } 
    header.sticky{
@@ -810,9 +784,6 @@ header.sticky{
     section{
     padding: 80px 3%;
     transition: .3s;
-   }
-   .circle{
-    padding-left: 1px;
    }
    .contact{
     width: 95%;
@@ -825,31 +796,64 @@ header.sticky{
     transition: .3s;
    } 
 }
+
+@media (max-width: 991px) {
+    header,section,footer{
+        padding: 20px 3%;  
+    }
+}
  @media (max-width: 920px) {
     #menu-icon{
         display: block;
     }
-    .home{
-        min-height: 80vh;
-    }
     .navlist{
         position: absolute;
         top: 100%;
-        right: -100%;
-        width: 225px;
+        right: 0%;
         min-height: 100vh;
         flex-direction: column;
-        background: var(--main-color);
-        text-align: right;
-        transition: all .40s;
+        gap: 0;
+        perspective: 400px;
     }
-     .navlist a{
-        display: block;
-        padding: 17px;
-       font-size: 22px;
-        border-right: 2px solid var(--bg-color);
+    .navlist li{
+        height: 4rem;
+        width: 100%;
+        box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.5);
+        animation: navAnimation 600ms ease forwards;
+        transform: rotateX(90deg);
+        transform-origin: top;
+        opacity: 0;
+    }
+    .navlist li:nth-child(2){
+        animation-delay: 200ms;
+    }
+    .navlist li:nth-child(3){
+        animation-delay: 400ms;
+    }
+    .navlist li:nth-child(4){
+        animation-delay: 600ms;
+    }
+    .navlist li:nth-child(5){
+        animation-delay: 800ms;
+    }
+
+    @keyframes navAnimation {
+        to{
+            transform: rotateX(0);
+            opacity: 1;
+        }
+    }
+
+    .navlist li a{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1rem 6rem 1rem 5rem;
+        background: var(--main-color);
         color: var(--bg-color);
     }
+
     .navlist a:hover{
         background: var(--bg-color);
         color: var(--main-color);
@@ -858,7 +862,7 @@ header.sticky{
         display: none;
     }
     .navlist.active{
-        right: 0;
+        display: none;
     }
     .home-text h5{
         margin-bottom: 23px;
@@ -868,20 +872,16 @@ header.sticky{
     }
 }
 @media (max-width: 800px) {
-        .home{
-            grid-template-columns: 1fr;
-            min-height: 130vh;
-            gap: 1rem;
-        }
+    .home{
+        grid-template-columns: 1fr;
+    }
         .home-text{
             padding-top: 55px;
         }
-        .home-img{
+        .imagehome{
             text-align: center;
+            margin-bottom: 30px;
         }
-        /* .home-img img{
-            width: 440px;
-        } */
         .about{
             grid-template-columns: 1fr;
         }
@@ -892,6 +892,7 @@ header.sticky{
         .qualification-container{
             grid-template-columns: 290px;
             row-gap: 3rem;
+            padding-left: 5rem;
         }
         .skills-container{
             grid-template-columns: 300px;
@@ -909,6 +910,9 @@ header.sticky{
     @media (max-width: 540px) {
     .contact .action form input[type="email"]{
         width: 310px;
+    }
+    .qualification-container{
+        padding-left: 5rem;
     }
 } 
 

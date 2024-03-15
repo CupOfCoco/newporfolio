@@ -35,8 +35,8 @@ const header = document.querySelector("header");
         reset:true
      }) 
      
-     sr.reveal('.home-text',{delay: 380,origin:'left'})
-     sr.reveal('.circle',{delay: 380,origin:'right'})
+     sr.reveal('.home-text',{delay: 350,origin:'top'})
+     sr.reveal('.imagehome',{delay: 350,origin:'right'})
 
      sr.reveal('.about,.qualification,.skills section,.portfolio,.service,.cta,.contact',{delay: 350,origin:'bottom'})
      sr.reveal('.skills-content',{delay: 350,origin:'right'})
